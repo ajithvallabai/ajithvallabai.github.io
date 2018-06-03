@@ -13,7 +13,7 @@ You know what happened in the flim when Neo understands the enigneering/structur
 Basic feature mapping: Edge detection of image/vedio and Sharpenning of images/vedio:
 
 
-![edges.PNG](https://raw.githubusercontent.com/ajithvallabai/ajithvallabai.github.io/master/images/blogone/edges.png) ![sharp.PNG](https://raw.githubusercontent.com/ajithvallabai/ajithvallabai.github.io/master/images/blogone/sharp.png)
+![edges.PNG](https://raw.githubusercontent.com/ajithvallabai/ajithvallabai.github.io/master/images/blogone/edges.PNG) ![sharp.PNG](https://raw.githubusercontent.com/ajithvallabai/ajithvallabai.github.io/master/images/blogone/sharp.PNG)
 
 
 
