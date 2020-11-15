@@ -1,11 +1,8 @@
 ---
-layout: page
+layout: post
 title: About
-permalink: /about/
 ---
 
+This is an example page!
 
-
-### Contact me
-
-[inocajith21.5@gmail.com](mailto:inocajith21.5@gmail.com)
+Actually, it has the same layout of a post...
