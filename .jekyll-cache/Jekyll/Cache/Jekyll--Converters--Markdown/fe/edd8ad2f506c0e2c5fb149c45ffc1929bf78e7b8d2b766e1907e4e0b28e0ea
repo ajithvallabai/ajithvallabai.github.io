@@ -1,0 +1,175 @@
+I"h<p>Mapping of input image where a certain kind of feature is found .It’s done by activation of outputs with a kernel/filter applied on input image with a certain receptive field. 
+Feature map is also called as activation map.</p>
+
+<p>You know what happened in the flim when Neo understands the enigneering/structure/entity of the matrix he was able to control them.</p>
+
+<p><img src="https://i.gifer.com/3HeS.gif" alt="Image1" /></p>
+
+<p>Basic feature mapping: Edge detection of image/vedio and Sharpenning of images/vedio:</p>
+
+<p><img src="https://raw.githubusercontent.com/ajithvallabai/ajithvallabai.github.io/master/images/blogone/edges.PNG" alt="edges.PNG" /> <img src="https://raw.githubusercontent.com/ajithvallabai/ajithvallabai.github.io/master/images/blogone/sharp.PNG" alt="sharp.PNG" /></p>
+
+<p><strong>Math View</strong></p>
+
+<p>Receptive field + kernel  —&gt; Activation –&gt; Feature map</p>
+
+<p>Kernel can be altered to produce the desired feature map after activation.Activation is nothing but considreing/theresholding the filtered input within 0 to 1 value.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/800/1*_34EtrgYk6cQxlJ2br51HQ.gif" alt="Feature mapping" /></p>
+
+<p><strong>Feature view</strong>:</p>
+
+<p>Naive view:</p>
+
+<p><strong>Original Image with One feature</strong></p>
+
+<p><img src="https://raw.githubusercontent.com/ajithvallabai/ajithvallabai.github.io/master/images/blogone/drawisland(4).png" alt="drawisland (4).png" /><img src="https://raw.githubusercontent.com/ajithvallabai/ajithvallabai.github.io/master/images/blogone/imagenine.png" alt="imagenine.png" /><img src="https://raw.githubusercontent.com/ajithvallabai/ajithvallabai.github.io/master/images/blogone/drawisland(5).png" alt="drawisland (5).png" /></p>
+
+<p><em>Feature maps of digit 1,2,3 are matrix Ek,matrix Tho,matrix Theen</em></p>
+
+\[\left[
+\begin{array}{cc}
+  0&amp;0&amp;0\\
+  0&amp;0&amp;a\\
+  0&amp;0&amp;a\\
+  0&amp;0&amp;a\\
+  0&amp;0&amp;0
+\end{array}
+\right]
+-
+\left[
+\begin{array}{cc}
+  a&amp;a&amp;a\\
+  0&amp;0&amp;a\\
+  a&amp;a&amp;a\\
+  a&amp;0&amp;0\\
+  a&amp;a&amp;a
+\end{array}
+\right]
+-
+\left[
+\begin{array}{cc}
+  a&amp;a&amp;a\\
+  0&amp;0&amp;a\\
+  a&amp;a&amp;a\\
+  0&amp;0&amp;a\\
+  a&amp;a&amp;a
+\end{array}
+\right]\]
+
+<p>You can see that a matrix Ek can be identified as 1 with the presence of a in [1,2],[2,2],[3,2] similarly for matrix tuo, and for matrix theen.</p>
+
+<p><strong>Original image with Two feature</strong></p>
+
+<p><img src="https://raw.githubusercontent.com/ajithvallabai/ajithvallabai.github.io/master/images/blogone/drawisland(8).png" alt="drawisland (8).png" /> <img src="https://raw.githubusercontent.com/ajithvallabai/ajithvallabai.github.io/master/images/blogone/imagethree.png" alt="imagethree.png" /> <img src="https://raw.githubusercontent.com/ajithvallabai/ajithvallabai.github.io/master/images/blogone/imagefour.png" alt="imagefour.png" /> <img src="https://raw.githubusercontent.com/ajithvallabai/ajithvallabai.github.io/master/images/blogone/imagetwo.png" alt="imagetwo.png" /></p>
+
+<p>Now transformming the digit 2 features in to matrixes</p>
+
+<p><img src="https://raw.githubusercontent.com/ajithvallabai/ajithvallabai.github.io/master/images/blogone/imageseven.png" alt="imageseven.png" />
+<img src="https://raw.githubusercontent.com/ajithvallabai/ajithvallabai.github.io/master/images/blogone/imagefive.png" alt="imagefive.png" /></p>
+
+<p>\(\left[
+\begin{array}{cc}
+  a&amp;a&amp;a\\
+  0&amp;0&amp;0\\
+  a&amp;a&amp;a\\
+  0&amp;0&amp;0\\
+  a&amp;a&amp;a
+\end{array}
+\right]+
+\left[
+\begin{array}{cc}
+  0&amp;0&amp;0\\
+  0&amp;0&amp;b\\
+  0&amp;0&amp;0\\
+  b&amp;0&amp;0\\
+  0&amp;0&amp;0
+\end{array}
+\right]-&gt;
+\left[
+\begin{array}{cc}
+  a&amp;a&amp;a\\
+  0&amp;0&amp;b\\
+  a&amp;a&amp;a\\
+  b&amp;0&amp;0\\
+  a&amp;a&amp;a
+\end{array}
+\right]\)
+<em>Feature map 1 of digit 2 + Feature map 2 of digit 2 –&gt; Output 1</em>
+\(\left[
+\begin{array}{cc}
+  a&amp;a&amp;a\\
+  0&amp;0&amp;0\\
+  a&amp;a&amp;a\\
+  0&amp;0&amp;0\\
+  a&amp;a&amp;a
+\end{array}
+\right]+
+\left[
+\begin{array}{cc}
+  0&amp;0&amp;0\\
+  0&amp;0&amp;b\\
+  0&amp;0&amp;0\\
+  0&amp;0&amp;b\\
+  0&amp;0&amp;0
+\end{array}
+\right]-&gt;
+\left[
+\begin{array}{cc}
+  a&amp;a&amp;a\\
+  0&amp;0&amp;b\\
+  a&amp;a&amp;a\\
+  0&amp;0&amp;b\\
+  a&amp;a&amp;a
+\end{array}
+\right]\)
+<em>Feature map 1 of digit 3 + Feature map 2 of digit 3 –&gt; Output 2</em></p>
+
+<p>Now with 1x1 convolution we can make the network to train such that by seeing two pixels/cells [2,0] and [2,2] the network could identify whther it is 1, 2 or 3 . and still if original image contains more features we can extract many feature maps for better network.</p>
+
+<p>Think of one feature , two feature and four feature maps for calculator digits
+More the features there are in original image –&gt; more the deeper the network could go –&gt;more the connectivity –&gt; firing of neurons can be worth for it.
+<img src="https://raw.githubusercontent.com/ajithvallabai/ajithvallabai.github.io/master/images/blogone/imagenine.png" alt="imagenine.png" />  <img src="https://raw.githubusercontent.com/ajithvallabai/ajithvallabai.github.io/master/images/blogone/imagethree.png" alt="imagethree.png" /> <img src="https://raw.githubusercontent.com/ajithvallabai/ajithvallabai.github.io/master/images/blogone/imageten.png" alt="imageten.png" /></p>
+
+<p>Using the power of feature maps is provided by convolution</p>
+
+<p>When you see an image its the features that make the image.Those features are the vision that you have sub consiously in neuron activation both in humans.</p>
+
+<p><em>Same way when the neural network and neurons that you design for a robot/machine  are able to map and differentiate features with the power of architecture they have, they can have the power to recongnise the inputs given to them .</em></p>
+
+<p><img src="https://i.pinimg.com/originals/18/ba/9f/18ba9fa5659f85c4462607397ad8c99a.gif" alt="Image6" /></p>
+
+<p>So how he was able to do that</p>
+
+<p><img src="https://media0.giphy.com/media/V8iAE46YlM2FW/giphy.gif" alt="Image2" /></p>
+
+<p>its the features that makes us to percieve</p>
+
+<p>Though the brain of neo already was capable/capacity of controlling or viewing that environment ;only after the intellegince provieded by the child he was able to bend it.</p>
+
+<p>Intelligence is provided by activations of neurons that produces feature maps .</p>
+
+<p><strong>Advanced view:</strong></p>
+
+<p>Below is an image for salient object detection technique in deep learning you can see how the object to be detected is getting more prioratised in further layers by neglecting background. This is how the needed feature of image is processed/filtered in subsequent layers with corresponding regions beiing activated/mapped.</p>
+
+<p><img src="http://ars.els-cdn.com/content/image/1-s2.0-S0925231216314710-gr1.jpg" alt="Image" /></p>
+
+<p><strong>Mnist feature maps of early layer and final layers:</strong></p>
+
+<p>This is a view of early layers where network is seeing the edges of the digit.This is similar to how rods and cones in our eyes to works</p>
+
+<p><img src="http://everettsprojects.com/figs/2018-01-17-mnist-visualization/output_8_0.png" alt="layer1" /></p>
+
+<p>You can see that at final layer network is able to identify common features in the given set of input images</p>
+
+<p><img src="http://everettsprojects.com/figs/2018-01-17-mnist-visualization/output_18_0.png" alt="layer2" /></p>
+
+<p>References &amp; further readings:</p>
+<ol>
+  <li><a href="http://setosa.io/ev/image-kernels/">Image Kernels explained visually</a></li>
+  <li><a href="http://everettsprojects.com/2018/01/17/mnist-visualization.html">What Does my MNIST ConvNet Actually See?</a></li>
+  <li>https://www.sciencedirect.com/science/article/pii/S0925231216314710</li>
+</ol>
+
+:ET

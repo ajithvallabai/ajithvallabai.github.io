@@ -1,0 +1,3 @@
+I"B<p><strong>Reason for a filter like 1x1 convolution rather than 5x5 or 3x3</strong>:
+Cross channel/dimensional information provides deeper insight of input with a better receptive field for unique features.1x1 convolution also provides dimentionality reduction across multiple feature maps with less computation cost.</p>
+:ET

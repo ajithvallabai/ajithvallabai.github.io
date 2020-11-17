@@ -1,0 +1,215 @@
+I"<p><strong>Reason for a filter like 1x1 convolution rather than 5x5 or 3x3</strong>:
+Cross channel/dimensional information provides deeper insight of input with a better receptive field for unique features.1x1 convolution also provides dimentionality reduction across multiple feature maps with less computation cost.</p>
+
+<p><strong>Origin:</strong>  <a href="https://arxiv.org/pdf/1312.4400v3.pdf">Network in network</a> , <a href="https://arxiv.org/pdf/1409.4842v1.pdf">Inception Module</a></p>
+
+<p>In 1x1 convolution input of all feature maps should be exactly in same dimension (Width and height) to provide exact same dimiension(height and width) transformed output.Thus enabling the transformation to take place among each of the feature maps.This provides cross channel information learnning to provide better receptive field</p>
+
+<h3 id="architecture-view">Architecture view</h3>
+
+<p><strong>Naive view</strong></p>
+
+<p>Below you can see how two features maps can be transformed to one with 1x1 convolution</p>
+
+<p><img src="https://raw.githubusercontent.com/ajithvallabai/ajithvallabai.github.io/master/images/blogtwo/imagethree.png" alt="imagethree.png" />  <img src="https://raw.githubusercontent.com/ajithvallabai/ajithvallabai.github.io/master/images/blogtwo/imagefour.png" alt="imagefour.png" /></p>
+
+<p><strong>Features of Digit 2 :</strong>
+Feature map 1 &amp; Feature map 2
+<img src="https://raw.githubusercontent.com/ajithvallabai/ajithvallabai.github.io/master/images/blogtwo/imageseven.png" alt="imageseven.png" /> <img src="https://raw.githubusercontent.com/ajithvallabai/ajithvallabai.github.io/master/images/blogtwo/imagefive.png" alt="imagefive.png" /></p>
+
+<p><strong>Features of Digit 3:</strong>
+Feature map 1 &amp; Feature map 2
+<img src="https://raw.githubusercontent.com/ajithvallabai/ajithvallabai.github.io/master/images/blogtwo/imageseven.png" alt="imageseven.png" /> <img src="https://raw.githubusercontent.com/ajithvallabai/ajithvallabai.github.io/master/images/blogtwo/imagesix.png" alt="imagesix.png" /></p>
+
+<p>Image representation :</p>
+
+<p><img src="https://raw.githubusercontent.com/ajithvallabai/ajithvallabai.github.io/master/images/blogtwo/imagetwo.png" alt="imagetwo.png" /></p>
+
+<p>Now transformming the features in to matrixes</p>
+
+<p>\(\left[
+\begin{array}{cc}
+  a&amp;a&amp;a\\
+  0&amp;0&amp;0\\
+  a&amp;a&amp;a\\
+  0&amp;0&amp;0\\
+  a&amp;a&amp;a
+\end{array}
+\right]+
+\left[
+\begin{array}{cc}
+  0&amp;0&amp;0\\
+  0&amp;0&amp;b\\
+  0&amp;0&amp;0\\
+  b&amp;0&amp;0\\
+  0&amp;0&amp;0
+\end{array}
+\right]-&gt;
+\left[
+\begin{array}{cc}
+  a&amp;a&amp;a\\
+  0&amp;0&amp;b\\
+  a&amp;a&amp;a\\
+  b&amp;0&amp;0\\
+  a&amp;a&amp;a
+\end{array}
+\right]\)
+<em>Feature map 1 of digit 2 + Feature map 2 of digit 2 –&gt; Output 1</em>
+\(\left[
+\begin{array}{cc}
+  a&amp;a&amp;a\\
+  0&amp;0&amp;0\\
+  a&amp;a&amp;a\\
+  0&amp;0&amp;0\\
+  a&amp;a&amp;a
+\end{array}
+\right]+
+\left[
+\begin{array}{cc}
+  0&amp;0&amp;0\\
+  0&amp;0&amp;b\\
+  0&amp;0&amp;0\\
+  0&amp;0&amp;b\\
+  0&amp;0&amp;0
+\end{array}
+\right]-&gt;
+\left[
+\begin{array}{cc}
+  a&amp;a&amp;a\\
+  0&amp;0&amp;b\\
+  a&amp;a&amp;a\\
+  0&amp;0&amp;b\\
+  a&amp;a&amp;a
+\end{array}
+\right]\)
+<em>Feature map 1 of digit 2 + Feature map 2 of digit 2 –&gt; Output 2</em></p>
+
+<p><strong>Thus 1x1 convolution makes the network(gives intelligence) to see that a single pixel at location (3,2) contains b or not .if b is present network will detect it as digit 2 if b is not present after transformation network will detect as 3</strong></p>
+
+<p>From the simple view above you can see that while doing 1x1 convolution the kernel/filter doesnt care about the correlation of information in same feature map.Here each pixel of feature map 1 is compared with each pixel of feature map 2 and output is provided.</p>
+
+<p>Similarly think of 4 feature maps</p>
+
+<p>1x1 convolution enables us to focus on unique part in the input like difference between 2 and 3</p>
+
+<p><strong>Advanced view</strong></p>
+
+<p>In below picture 10 feature maps of 32x32 image is transformed to 4 feature maps of 32x32 image</p>
+
+<p><img src="https://mlblr.com/images/1x1.jpg" alt="image3" /></p>
+
+<h3 id="process-of-dimensionality-reduction">Process of dimensionality reduction</h3>
+
+<p>50x 600x600 –&gt; 50 x1x1 x20 –&gt; 600x600 x20</p>
+
+<p>50x 600x600 –&gt; 1 channel of 600x600 image
+50x 1x1x20  –&gt; each of (50x 1x1 ) provides one output(600x600x1) –&gt; so we get twenty outputs(600x600x20)</p>
+
+<h3 id="math-view">Math view</h3>
+<p><strong>Naive view:</strong></p>
+
+<p>I have shown how 3 feature maps that are mapped to 1 feature maps
+<em>I have shown how 3 feature maps of size 6x6(WXH) that were mapped to 1 feature maps of size 5x5(WxH)</em>
+<strong>Three feature maps</strong></p>
+
+<p>\(\left[
+\begin{array}{cc}
+  1&amp;2&amp;3&amp;2&amp;2&amp;3\\
+  4&amp;5&amp;6&amp;2&amp;2&amp;3\\
+  2&amp;1&amp;7&amp;2&amp;1&amp;3\\
+  3&amp;2&amp;4&amp;2&amp;2&amp;3\\
+  3&amp;2&amp;4&amp;2&amp;2&amp;3\\
+  3&amp;2&amp;4&amp;2&amp;2&amp;3
+\end{array}
+\right]
+\left[
+\begin{array}{cc}
+  3&amp;2&amp;4&amp;3&amp;2&amp;2\\
+  3&amp;2&amp;4&amp;3&amp;2&amp;2\\
+  1&amp;2&amp;3&amp;3&amp;2&amp;2\\
+  4&amp;5&amp;6&amp;3&amp;2&amp;2\\
+  3&amp;2&amp;4&amp;3&amp;2&amp;2\\
+  2&amp;1&amp;7&amp;2&amp;1&amp;3
+\end{array}
+\right]\)
+\(\left[
+\begin{array}{cc}
+  1&amp;2&amp;3&amp;3&amp;2&amp;2\\ 
+  3&amp;2&amp;4&amp;3&amp;2&amp;2\\
+  3&amp;2&amp;4&amp;3&amp;2&amp;2\\
+   4&amp;5&amp;6&amp;3&amp;2&amp;2\\
+  3&amp;2&amp;4&amp;3&amp;2&amp;2\\
+  2&amp;1&amp;7&amp;2&amp;1&amp;3
+\end{array}
+\right]\)</p>
+
+<p><strong>1x1 kernel</strong> of Depth 1</p>
+
+\[\left[
+\begin{array}{cc}
+  0.1\\  
+\end{array}
+\right]
+\left[
+\begin{array}{cc}
+  0.2\\ 
+\end{array}
+\right]
+\left[
+\begin{array}{cc}
+  0.4\\  
+\end{array}
+\right]\]
+
+<p><strong>Transformation</strong></p>
+
+<p>\(3 *6*6    --&gt; 3 *1*1   *1 --&gt; 6*6* 1\)
+\(C*W*H  --&gt; C*W*H *K  --&gt; W*H* K\)
+C– Channels
+W–Width
+H–Height
+K–Number of desired output channel/number of filters/Number of depth size</p>
+
+<p><strong>Output</strong>
+1 * 0.1 +3 * 0.2 + 1 * 0.4 = 1.1  for output T[0,0]
+4 * 0.1 + 3 * 0.2 +3 * 0.4 = 2.2 for ouput T[1,0]</p>
+
+<p>Matrix <strong>output T</strong> after 1x1 convolution:</p>
+
+\[\left[
+\begin{array}{cc}
+  1.1&amp;1.4&amp;2.3&amp;2.0&amp;1.4&amp;1.5\\ 
+  2.2&amp;1.7&amp;3.0&amp;2.0&amp;1.4&amp;1.5\\
+  1.6&amp;1.3&amp;2.9&amp;2.0&amp;1.3&amp;1.5\\
+   2.7&amp;3.2&amp;4.0&amp;2.0&amp;1.4&amp;1.5\\
+  2.1&amp;1.4&amp;2.8&amp;2.0&amp;1.4&amp;1.5\\
+  1.5&amp;0.8&amp;0.6&amp;1.4&amp;0.8&amp;2.1
+\end{array}
+\right]\]
+
+<h3 id="depth-criteria">Depth criteria:</h3>
+
+<p>By increasing number of 1x1 filters in parallel with channel we can increase the depth of convolution  so deeper the network deeper the network could percieve.
+<strong>Depth 1</strong></p>
+
+<p><img src="https://qph.ec.quoracdn.net/main-qimg-013c5e1bac766f3e1bbe655c9a460a5e" alt="Image 0" /></p>
+
+<p><strong>Depth 2</strong></p>
+
+<p><img src="https://qph.ec.quoracdn.net/main-qimg-0b3c4bbc86cc5c73efb8dbf2c699265a" alt="Image1 " /></p>
+
+<p><strong>Depth 3</strong></p>
+
+<p><img src="https://qph.ec.quoracdn.net/main-qimg-80ebcfc916a3016013b14e258c82daaa" alt="Image 2" /></p>
+
+<p>Fully connected layers provided overfitting so to reduce them dropout were used but it lead to information loss moreover adantages of unique feature extraction in 1x1 was lacking in early FC layers .</p>
+
+<h3 id="references-and-further-readings">References and further readings:</h3>
+
+<ol>
+  <li><a href="https://mlblr.com/includes/mlai/index.html#1x1-convolutions">ML &amp; AI</a></li>
+  <li><a href="http://iamaaditya.github.io/2016/03/one-by-one-convolution/">One by One [ 1 x 1 ] Convolution - counter-intuitively usefu
+l – Aaditya Prakash (Adi) – Random musings of a deep learning grad student</a></li>
+  <li><a href="https://www.reddit.com/r/MachineLearning/comments/3oln72/1x1_convolutions_why_use_them/">1x1 Convolutions - Why use them? : MachineLearning</a></li>
+</ol>
+:ET

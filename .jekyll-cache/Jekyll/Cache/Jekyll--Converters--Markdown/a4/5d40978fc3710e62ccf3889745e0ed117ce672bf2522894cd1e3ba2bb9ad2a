@@ -1,0 +1,65 @@
+I" <!--
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115004685-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-115004685-1');
+</script>
+-->
+
+<div class="posts">
+  
+    <article class="post">
+
+      <h1><a href="/Archive_pages/">Archive_pages</a></h1>
+
+      <div class="entry">
+        <h3>Machine Learning &amp; Deep Learning </h3>
+
+      </div>
+
+      <a href="/Archive_pages/" class="read-more">Read More</a>
+    </article>
+  
+    <article class="post">
+
+      <h1><a href="/Blog_two/">1x1 Convolution</a></h1>
+
+      <div class="entry">
+        <p><strong>Reason for a filter like 1x1 convolution rather than 5x5 or 3x3</strong>:
+Cross channel/dimensional information provides deeper insight of input with a better receptive field for unique features.1x1 convolution also provides dimentionality reduction across multiple feature maps with less computation cost.</p>
+
+      </div>
+
+      <a href="/Blog_two/" class="read-more">Read More</a>
+    </article>
+  
+    <article class="post">
+
+      <h1><a href="/Blog_three/">Receptive field</a></h1>
+
+      <div class="entry">
+        <p>Field(group of cells) to be processed from the input image for having better connectivity within neurons(cells) to activate the desired neuron for the desired purpose of the neural network.</p>
+
+      </div>
+
+      <a href="/Blog_three/" class="read-more">Read More</a>
+    </article>
+  
+    <article class="post">
+
+      <h1><a href="/Blog_one/">Feature map</a></h1>
+
+      <div class="entry">
+        <p>Mapping of input image where a certain kind of feature is found .Itâ€™s done by activation of outputs with a kernel/filter applied on input image with a certain receptive field. 
+Feature map is also called as activation map.</p>
+
+      </div>
+
+      <a href="/Blog_one/" class="read-more">Read More</a>
+    </article>
+  
+</div>
+:ET
