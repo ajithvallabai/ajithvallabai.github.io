@@ -1,4 +1,4 @@
-I"<p>There was a sitation in my life at 2016 , i realised that i need to specialize in a domain which is 
+I"\<p>There was a sitation in my life at 2016 , i realised that i need to specialize in a domain which is 
 needed for the technical world ,purposefull with good problem statements and exciting to me.</p>
 
 <p>I work on below things for learning purpose and open source contribution:
@@ -6,11 +6,17 @@ needed for the technical world ,purposefull with good problem statements and exc
     - Solving issues in pytorch and opecv repos - started
     - Building small libraries in python which is not readily available in pip or conda - started</p>
 
-<p>2021 - 2023 
-    - I would be trying to specialize on building good Agents for custom environments ,purposes,with custom problem statements.</p>
+<p>2021 - 2023</p>
 
-<p>2023 - 2026
-    - I would be trying to build the world(in stimulation) and agents for certian things which i am not able to prove 100/100 people in real world in a certain part of my life. Hence it would have both theoretical and experimental(recreatable) proof.</p>
+<ul>
+  <li>I would be trying to specialize on building good Agents for custom environments ,purposes,with custom problem statements.</li>
+</ul>
+
+<p>2023 - 2026</p>
+
+<ul>
+  <li>I would be trying to build the world(in stimulation) and agents for certian things which i am not able to prove 100/100 people in real world in a certain part of my life. Hence it would have both theoretical and experimental(recreatable) proof.</li>
+</ul>
 
 <p>Sequential Problem statements:</p>
 
@@ -24,6 +30,6 @@ needed for the technical world ,purposefull with good problem statements and exc
 
 <p>Note: We can call only a successfull agent deployed in a hardware as a robot.Robot means a RL robot which was trained in stimulation rather than rules.</p>
 
-<p><strong>Hope i beilive that this will look NEAR and possible in step by step manner</strong></p>
+<p><i> Hope I believe that this will look NEAR and possible in step by step manner and it would be classified as a technical content </i></p>
 
 :ET

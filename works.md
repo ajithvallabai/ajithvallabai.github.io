@@ -8,9 +8,10 @@ There was a sitation in my life at 2016 , i realised that i need to specialize i
 needed for the technical world ,purposefull with good problem statements and exciting to me.
 
 I work on below things for learning purpose and open source contribution:
-    - Writing Research papers
-    - Solving issues in pytorch and opecv repos - started
-    - Building small libraries in python which is not readily available in pip or conda - started
+
+- Writing Research papers
+- Solving issues in pytorch and opecv repos - started
+- Building small libraries in python which is not readily available in pip or conda - started
     
 2021 - 2023 
 
@@ -30,5 +31,5 @@ Sequential Problem statements:
     
 Note: We can call only a successfull agent deployed in a hardware as a robot.Robot means a RL robot which was trained in stimulation rather than rules.
 
-**Hope I beilive that this will look NEAR and possible in step by step manner and it would be classified as a technical content**
+<i> Hope I believe that this will look NEAR and possible in step by step manner and it would be classified as a technical content </i>
 
